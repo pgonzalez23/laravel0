@@ -15,11 +15,8 @@ Route::get('/', function () {
     return 'Hola';
 });
 
-Route::get('/usuarios', function () {
-
-    return 'Usuarios';
-
-});
+Route::get('/usuarios', 'UserController@index'); //formato cadena de texto: nombre del controlador, @, nombre del método al que quiero
+                                                 //llamar.
 
 /*
  * Ruta menos amigable que la definida debajo.
@@ -31,32 +28,18 @@ Route::get('/usuarios', function () {
 });*/
 
 
-Route::get('usuarios/{id}', function ($id) {
+Route::get('usuarios/{id}', 'UserController@show')->where('id', '[0-9]+');
 
-    return 'Mostrando detalles del usuario: ' . $id;
-
-})->where('id', '[0-9]+'); //para no tener que cambiar el orden de rutas, concretamos que la id ha de ser un numero
-
+//para no tener que cambiar el orden de rutas, concretamos que la id ha de ser un numero
 // que se puede repetir una o más veces.
 
 
-Route::get('usuarios/nuevo', function (){
+Route::get('usuarios/nuevo', 'UserController@create');
 
-    return 'Creando un usuario nuevo';
+Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController');
 
-});
+//la interrogación dice que el nickname
+// puede estar o no estar (hay que asignarle un valor por defecto, null). Añadimos la condición:
 
-Route::get('/saludo/{name}/{nickname?}', function($name, $nickname = null){ //la interrogación dice que el nickname
-    // puede estar o no estar (hay que asignarle un valor por defecto, null). Añadimos la condición:
 
-    if ($nickname){
 
-        return 'Bienvenido ' . ucfirst($name) . '. Tu apodo es ' . $nickname . '.';
-
-    } else{
-
-        return 'Bienvenido ' . ucfirst($name) . '.';
-
-    }
-
-});
