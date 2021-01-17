@@ -16,7 +16,9 @@ class UserModuleTest extends TestCase
     {
         $this->get('/usuarios') //voy a la ruta /usuarios
         ->assertStatus(200)   //recibir alerta codigo 200 (página con exito)
-        ->assertSee('Usuarios'); //me gustaría ver en la Página la palabra Usuarios
+        ->assertSee('Usuarios') //me gustaría ver en la Página la palabra Usuarios
+        ->assertSee('Joel')
+        ->assertSee('Ellie');
     }
 
     /** @test */
