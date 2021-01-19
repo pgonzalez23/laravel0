@@ -1,30 +1,25 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{$title}}</title>
-</head>
-<body>
+@extends('layout') {{-- Heredamos archivo layout, que contiene header y footer--}}
 
-<h1>{{$title}}</h1>
+@section('content') {{--Creamos seccion 'content', que es la sección que tiene el contenido--}}
 
-    {{-- CUARTA FORMA, JUNTANDO --}}
+<h1>{{ $title }}</h1>
 
-    <ul>
-        {{-- forelse: Hace un forelse sólo en el caso de que la variable que va a ser iterada no esté vacía --}}
+{{-- CUARTA FORMA, JUNTANDO --}}
 
-        @forelse($users as $user)
+<ul>
+{{-- forelse: Hace un forelse sólo en el caso de que la variable que va a ser iterada no esté vacía --}}
 
-            <li>{{ $user }}</li>
+@forelse($users as $user)
 
-        @empty
-            <p>No hay usuarios registrados</p>
+<li>{{ $user }}</li>
 
-        @endforelse
-    </ul>
+@empty
+<p>No hay usuarios registrados</p>
+
+@endforelse
+</ul>
+
+@endsection {{-- Terminamos la seccion --}}
 
 {{-- PRIMERA FORMA
 
@@ -93,6 +88,3 @@
 --}}
 
 
-
-</body>
-</html>

@@ -31,7 +31,8 @@ class UserController extends Controller
 
     public function show($id)
     {
-        return 'Mostrando detalles del usuario: ' . $id;
+        return view('users-show', compact('id')); //compact('id' : Array asociativo donde la clave es como
+                                                                // se conoce la variable en la vista y el valor, el valor que le estamos pasando.
     }
 
 
