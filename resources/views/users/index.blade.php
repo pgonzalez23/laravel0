@@ -1,5 +1,11 @@
 @extends('layout') {{-- Heredamos archivo layout, que contiene header y footer--}}
 
+@section('title')
+
+    Curso Laravel
+
+@endsection
+
 @section('content') {{--Creamos seccion 'content', que es la sección que tiene el contenido--}}
 
 <h1>{{ $title }}</h1>
@@ -20,6 +26,12 @@
 </ul>
 
 @endsection {{-- Terminamos la seccion --}}
+
+@section('sidebar')
+
+<h1>Barra lateral personalizada</h1>
+
+@endsection
 
 {{-- PRIMERA FORMA
 

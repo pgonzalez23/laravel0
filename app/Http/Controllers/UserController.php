@@ -16,7 +16,7 @@ class UserController extends Controller
             $users = ['Joel', 'Ellie', 'Tess', 'Tommy', 'Bill'];
         }
         $title = 'Listado de usuarios';
-        return view('users', compact('users', 'title'));
+        return view('users.index', compact('users', 'title'));
 
         //sabe que hay que buscar dentro de la carpeta views, el archivo users. (ayuda laravel)
         //como el nombre de la variable que pasamos es el mismo que el de la que usamos en la vista, usamos la función compact,
@@ -31,7 +31,7 @@ class UserController extends Controller
 
     public function show($id)
     {
-        return view('users-show', compact('id')); //compact('id' : Array asociativo donde la clave es como
+        return view('users.show', compact('id')); //compact('id' : Array asociativo donde la clave es como
                                                                 // se conoce la variable en la vista y el valor, el valor que le estamos pasando.
     }
 
