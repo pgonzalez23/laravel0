@@ -12,13 +12,23 @@ class UserModuleTest extends TestCase
 
     //En los test se puede quitar la palabra 'public' en las funciones. No se usa CamelCase.
 
-    function it_loads_the_users_list_page()  //Prueba que verifica la ruta /usuarios
+    function it_shows_the_users_list()  //Prueba que verifica la ruta /usuarios
     {
         $this->get('/usuarios') //voy a la ruta /usuarios
         ->assertStatus(200)   //recibir alerta codigo 200 (página con exito)
-        ->assertSee('Usuarios') //me gustaría ver en la Página la palabra Usuarios
+        ->assertSee('Listado de usuarios') //me gustaría ver en la Página la palabra Usuarios
         ->assertSee('Joel')
         ->assertSee('Ellie');
+    }
+
+    /** @test */
+
+    function it_shows_a_default_message_if_the_users_list_is_empty()
+    {
+        $this->get('/usuarios?empty')
+        ->assertStatus(200)
+        ->assertSee('Listado de usuarios')
+        ->assertSee('No hay usuarios registrados');
     }
 
     /** @test */

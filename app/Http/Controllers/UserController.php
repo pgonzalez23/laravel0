@@ -8,17 +8,13 @@ class UserController extends Controller
 {
     public function index()
     {
-        //generamos array de usuarios
-        $users = [
+        if (request()->has('empty')){ //Si la petición tiene el valor empty (?empty) :
+            $users = [];
 
-            'Joel',
-            'Ellie',
-            'Tess',
-            'Tommy',
-            'Bill',
+        } else {
 
-        ];
-
+            $users = ['Joel', 'Ellie', 'Tess', 'Tommy', 'Bill'];
+        }
         $title = 'Listado de usuarios';
         return view('users', compact('users', 'title'));
 
