@@ -35,6 +35,4 @@ class UserController extends Controller
                                                                 // se conoce la variable en la vista y el valor, el valor que le estamos pasando.
     }
 
-
-
 }
