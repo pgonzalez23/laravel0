@@ -11,7 +11,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function up() //crear tabla para la cual define las siguientes columnas
+    public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function down() //eliminar tabla, permite deshacer. migrate:rollback deshace el último paso.
+    public function down()
     {
         Schema::dropIfExists('users');
     }
