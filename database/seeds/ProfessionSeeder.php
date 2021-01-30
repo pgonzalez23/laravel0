@@ -1,7 +1,8 @@
 <?php
 
+use App\Profession;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB; //REFERENCIA DE RUTA COMPLETA
+//use Illuminate\Support\Facades\DB; //REFERENCIA DE RUTA COMPLETA
 
 class ProfessionSeeder extends Seeder
 {
@@ -12,18 +13,17 @@ class ProfessionSeeder extends Seeder
      */
     public function run()
     {
-        //Sirve para mandar infomación a la base de datos para comprobar su funcionalidad
+        //USAMOS ELOQUENT
 
-
-        DB::table('professions')->insert([
+        Profession::create([
             'title' => 'Desarrollador Back-End'
         ]);
 
-        DB::table('professions')->insert([
+        Profession::create([
             'title' => 'Desarrollador Front-End'
         ]);
 
-        DB::table('professions')->insert([
+        Profession::create([
             'title' => 'Diseñador web'
         ]);
 
