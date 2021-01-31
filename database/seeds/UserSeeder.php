@@ -20,7 +20,10 @@ class UserSeeder extends Seeder
 
 
         //Creamos un usuario:
-        User::create([
+
+        //User::create([      ASÍ NO USABAMOS EL FACTORY CREATE
+
+        factory(User::class)->create([
            'name' => 'Pepe Pérez',
            'email' => 'pepe@mail.es',
            'password' => bcrypt('123456'),
@@ -29,9 +32,9 @@ class UserSeeder extends Seeder
         ]);
 
         factory(User::class)->create([
-            'profession_id' => Profession::whereTitle('Desarrollador')->value('id'),
+            'profession_id' => Profession::whereTitle('Desarrollador Back-End')->value('id'),
         ]);
 
-        factory(User::class)->create();
+        factory(User::class, 48)->create(); //segundo parametro designa la cantidad de usuarios que se desea crear.
     }
 }
