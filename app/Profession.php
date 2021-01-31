@@ -11,4 +11,9 @@ class Profession extends Model
 
     protected $fillable = ['title']; //permite la asignacion masiva (elemento o elementos que se añaden dentro de un create)
 
+    public function users()
+    {
+       return $this->hasMany(User::class); //una profesion tiene muchos usuarios.
+    }
+
 }
