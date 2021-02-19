@@ -2,20 +2,31 @@
 
 namespace App\Http\Controllers;
 
+//use Illuminate\Support\Facades\DB; //PARA PODER USAR DB
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function index()
     {
-        if (request()->has('empty')){ //Si la petición tiene el valor empty (?empty) :
+        /* PRIMERA FORMA: NO OBTENEMOS DATOS DE LA BASE DE DATOS.
+         *  if (request()->has('empty')){ //Si la petición tiene el valor empty (?empty) :
             $users = [];
 
         } else {
 
             $users = ['Joel', 'Ellie', 'Tess', 'Tommy', 'Bill'];
-        }
+        }*/
+
+        // SEGUNDA FORMA: VAMOS A OBTENER LOS DATOS DE LA BASE DE DATOS.
+
+        // $users = DB::table('users')->get(); obtenemos todos los datos de los usuarios almacenados en la base de datos.
+
+        $users = User::all(); //sacamos todos los usuarios.
+
         $title = 'Listado de usuarios';
+
         return view('users.index', compact('users', 'title'));
 
         //sabe que hay que buscar dentro de la carpeta views, el archivo users. (ayuda laravel)

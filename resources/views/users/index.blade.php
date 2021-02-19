@@ -17,7 +17,7 @@
 
 @forelse($users as $user)
 
-<li>{{ $user }}</li>
+<li>{{ $user->name}}</li>
 
 @empty
 <p>No hay usuarios registrados</p>
@@ -27,11 +27,11 @@
 
 @endsection {{-- Terminamos la seccion --}}
 
-@section('sidebar')
+{{-- @section('sidebar')
 
 <h1>Barra lateral personalizada</h1>
 
-@endsection
+@endsection --}}
 
 {{-- PRIMERA FORMA
 

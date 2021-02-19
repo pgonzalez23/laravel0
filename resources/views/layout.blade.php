@@ -74,18 +74,17 @@
 <main role="main" class="flex-shrink-0">
 
     <div class="row pt-5 mt-5 ml-5">
-        <div class="col-8">
+        <div class="col-12">
             @yield('content')
         </div>
-        <div class="col-4">
+        {{-- <div class="col-4"> Servía para crear un hueco asignado a una posible barra lateral
             @section('sidebar')
                 <h2>Barra Lateral</h2>
             @endsection
-        </div>
+        </div> --}}
     </div>
 
 </main>
-
 
 <footer class="footer mt-auto py-3">
     <div class="container">
